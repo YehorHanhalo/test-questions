@@ -2,7 +2,7 @@
 
 # Javascript:
 
-*What is your favourite new javascript feature and why?
+*What is your favourite new javascript feature and why?*
 1. Optional chaining ?. - makes code clear and shorter
 2. Arrow functions ()=>{} - makes code clear and shorter
 3. Destructuring const {any: anyOfObject, variable} = object - makes code clear and shorter
