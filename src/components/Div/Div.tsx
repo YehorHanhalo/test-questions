@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef, ChangeEvent, FC } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef, ChangeEvent, KeyboardEvent, FC } from 'react';
 import styles from './Div.module.css';
 
 interface DivProps {
@@ -24,7 +24,21 @@ const Div: FC<DivProps> = ({ divHeight }) => {
   const divRef = useRef<HTMLDivElement>(null)
 
   const [rootDivHeight, setRootDivHeight] = useState<number>(divHeight)
-  const handleChangeInput = useCallback((e: ChangeEvent<HTMLInputElement>) => setRootDivHeight(+e.target.value), [])
+
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+      if ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0].includes(+e.key)) {
+          setRootDivHeight(prev => +(String(prev) + e.key))
+      }
+  }, [])
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+      if (e.code === 'Backspace') {
+        setRootDivHeight(prev => {
+          const inputString = String(prev)
+          return +inputString.slice(0, inputString.length - 1)
+        })
+      }
+  }, [])
 
   useLayoutEffect(() => {
     if (divRef.current) {
@@ -34,9 +48,9 @@ const Div: FC<DivProps> = ({ divHeight }) => {
     }
   }, [divRef])
 
-  const divInlineStyle = useMemo(() => ({
+  const divInlineStyle = {
     height: rootDivHeight,
-  }), [rootDivHeight])
+  }
   // =======================
 
   return (
@@ -46,7 +60,11 @@ const Div: FC<DivProps> = ({ divHeight }) => {
       style={divInlineStyle}
     >
       <span>Screen width: {screenWidth}</span>
-      <input value={rootDivHeight} onChange={handleChangeInput} />
+      <input
+        value={rootDivHeight}
+        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyDown}
+      />
     </div>
   );
 }
