@@ -2,7 +2,7 @@ import { useState, useEffect, useLayoutEffect, useCallback, useRef, KeyboardEven
 import styles from './Div.module.css';
 
 export interface DivProps {
-    divHeight?: number;
+    divHeight: number;
 }
 
 const Div: FC<DivProps> = ({ divHeight }) => {
@@ -23,7 +23,7 @@ const Div: FC<DivProps> = ({ divHeight }) => {
   // ========step 2=========
   const divRef = useRef<HTMLDivElement>(null)
 
-  const [rootDivHeight, setRootDivHeight] = useState<number | undefined>(divHeight)
+  const [rootDivHeight, setRootDivHeight] = useState<number>(divHeight)
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
       if ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0].includes(+e.key)) {

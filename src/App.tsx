@@ -1,4 +1,4 @@
-import Parent from './components/Parent'
+import WithDivHeight from './components/WithDivHeight'
 import styles from './App.module.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <section className={styles.section}>
-      <Parent />
+      <WithDivHeight />
     </section>
     </>
   );
