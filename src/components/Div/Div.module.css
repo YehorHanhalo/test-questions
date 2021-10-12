@@ -1,0 +1,19 @@
+.section {
+  width: 50%;
+  background-color: aquamarine;
+}
+
+.divStep1 {
+  display: flex;
+  min-width: 300px;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.divStep1 > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.divStep1 > input {
+  width: 50%;
+}
