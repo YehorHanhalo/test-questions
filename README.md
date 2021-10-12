@@ -11,13 +11,14 @@
 
 
 *Explain an interesting way in which you have used this javascript feature?*
+
 1. 
 ```
 const { current: memoizedObject } = useRef(anyObject)
 ``` 
 - prevents every time writing memoizedObject.current
 
-3. 
+2. 
 ```
 async () => {
   try {
@@ -45,6 +46,7 @@ async await prevent of writing Promise inside then chain Promise.
 *In your own words, explain what a javascript ‘class’ is and how it differs from a function?*
 Class - it's  syntax sugar, that allows write more ordered code than writen on prototypes.
 Class allows in one block {} write all class logic: properties and methods. It makes more comfortable code reading. 
+```
 class Car {
 constructor(name, maxSpeed, color){
     this.name = name;
@@ -56,7 +58,9 @@ constructor(name, maxSpeed, color){
     return this.maxSpeed;
   }
 }
+```
 While in ES5 we separately created class properties, then added methods for class prototype. And if we were needed to extend class we manually 
+```
 function Car(name, maxSpeed, color) {
   this.name = name;
   this.maxSpeed = maxSpeed;
@@ -65,7 +69,8 @@ function Car(name, maxSpeed, color) {
 
 Car.prototype.getMaxSpeed = function() {
   return this.maxSpeed;
-};
+}
+```
 
 If talking about extending, in ES5 we have to manually rewrite prototype of extended class, while in ES6 it is made more declarative.
 Class - it's a same regular function with more comfortable syntax.
@@ -89,18 +94,24 @@ Also had experience with Grid. But it is harder for understanding and not compat
 *Are negative margins legal and what do they do (margin: -20px)?*
 Negative margins moves inner content behind parent border. 
 I know only one case, when negative margins are legal. It is creating elements grid inside container with properties:
+```
 .container {
   display: flex;
   flex-wrap: wrap;
   margin-left: -20px;
   margin-top: -20px;
 }
+```
+
 than for elements we give properties:
+```
 .item {
   margin-left: 20px;
   margin-top: 20px;
   flex-basis: calc(100% / amountItemsInRow - 20px);
 }
+```
+
 This variant is more reusable if we will change items amount in the future.
 
 
