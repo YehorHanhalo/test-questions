@@ -11,8 +11,15 @@
 
 
 *Explain an interesting way in which you have used this javascript feature?*
-1. const { current: memoizedObject } = useRef(anyObject) - prevents every time writing memoizedObject.current
-2. async () => {
+1. 
+```
+const { current: memoizedObject } = useRef(anyObject)
+``` 
+- prevents every time writing memoizedObject.current
+
+3. 
+```
+async () => {
   try {
     const user = await getUser()
     const userInfo = await getUserInfo(user)
@@ -21,6 +28,7 @@
     errorHandle(err)
   }
 }
+```
 async await prevent of writing Promise inside then chain Promise.
 
 
