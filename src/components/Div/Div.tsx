@@ -1,8 +1,8 @@
-import { useState, useEffect, useLayoutEffect, useCallback, useRef, ChangeEvent, KeyboardEvent, FC } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef, KeyboardEvent, FC } from 'react';
 import styles from './Div.module.css';
 
-interface DivProps {
-    divHeight: number;
+export interface DivProps {
+    divHeight?: number;
 }
 
 const Div: FC<DivProps> = ({ divHeight }) => {
@@ -23,7 +23,7 @@ const Div: FC<DivProps> = ({ divHeight }) => {
   // ========step 2=========
   const divRef = useRef<HTMLDivElement>(null)
 
-  const [rootDivHeight, setRootDivHeight] = useState<number>(divHeight)
+  const [rootDivHeight, setRootDivHeight] = useState<number | undefined>(divHeight)
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
       if ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0].includes(+e.key)) {
@@ -39,6 +39,10 @@ const Div: FC<DivProps> = ({ divHeight }) => {
         })
       }
   }, [])
+
+  useLayoutEffect(() => {
+      setRootDivHeight(divHeight)
+  }, [divHeight])
 
   useLayoutEffect(() => {
     if (divRef.current) {

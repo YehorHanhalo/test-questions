@@ -1,14 +1,5 @@
-import Div from './components/Div'
+import Parent from './components/Parent'
 import styles from './App.module.css';
-
-declare global {
-  interface Window {
-    setDivHeight(height: number): void;
-  }
-}
-
-let divHeight: number;
-window.setDivHeight = (height: number) => divHeight = height;
 
 function App() {
   window.setDivHeight(100)
@@ -16,7 +7,7 @@ function App() {
   return (
     <>
     <section className={styles.section}>
-      <Div divHeight={divHeight} />
+      <Parent />
     </section>
     </>
   );
