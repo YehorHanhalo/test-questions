@@ -117,7 +117,7 @@ This variant is more reusable if we will change items amount in the future.
 
 *If a \<div/> has no margin or other styling and a \<p/> tag inside of it has a margin top of some kind, the margin from the \<p/> tag will show up on the div instead (the margin will show above the div not inside of it), why is this?  What are the different things that can be done to prevent it?*
 
-Margin from the <p/> will break through parent <div/> element and pushes div away from the neighbor. If <p/> it is just content inside of <div/>, better use for <div/> property: padding-top.
+Margin from the \<p/> will break through parent \<div/> element and pushes div away from the neighbor. If \<p/> it is just content inside of \<div/>, better use for \<div/> property: padding-top.
 
 # Unit tests: 
 I haven't used tests for react components.
